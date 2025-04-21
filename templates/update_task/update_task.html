@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Task</title>
+</head>
+<body>
+
+
+    {% if task.is_completed %}
+    <p >{{ task.title }} - <span style = background-color:green;>Completed</span> - {{ task.created_at }}</p>   
+    {% else %}
+    <p >{{ task.title }} - Not Completed - {{ task.created_at }}</p>        
+    {%endif%}
+
+
+    <form action="{% url 'update-task' task.id %}" method="POST"> 
+        {% csrf_token %}
+    
+        {{ task_form }}
+        <input class="btn" type="submit" name="create_task">
+    
+    </form>
+
+
+
+
+</body>
+</html>

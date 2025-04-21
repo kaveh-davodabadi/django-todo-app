@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+
+</head>
+<body style="font-size: 20px; text-align: center; padding-top: 100px;">
+
+    <form action="/" method = "POST"> 
+    {% csrf_token %}
+
+    {{task_form.title}}
+    <input class = "btn" type="submit" name="create_task">
+
+    </form>
+
+    {% for task in tasks %}
+        {% if task.is_completed %}
+
+
+            <p style="display: inline">{{ task.title }} - <span style = background-color:green;>Completed</span> - {{ task.created_at }}</p>        <a href="{% url 'update-task' task.id %}" style="display: inline"> Edit </a> <a href="{% url 'delete-task' task.id %}" style="display: inline"> delete </a>  <br>
+        {% else %}
+            <p style="display: inline">{{ task.title }} - Not Completed - {{ task.created_at }}</p>        <a href="{% url 'update-task' task.id %}" style="display: inline"> Edit </a>  <a href="{% url 'delete-task' task.id %}" style="display: inline"> delete </a> <br>
+        {% endif %}
+    {% endfor %}
+   <br>
+    <script>
+        document.querySelectorAll("input[type='text']").forEach(input => {
+          input.style.width = "300px";
+          input.style.height = "40px";
+          input.style.fontSize = "18px";
+
+
+        });
+      </script>
+</body>
+</html>

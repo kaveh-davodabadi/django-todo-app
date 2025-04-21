@@ -1,1 +1,16 @@
 venv/ 
+#  virtual enviroment
+venv/
+
+
+#cash files
+__pycache__/
+*.pyc
+
+#  local settings
+*.env
+local_*.py
+
+#  OS files
+.DS_Store
+Thumbs.db
