@@ -1,8 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'tasks/style.css' %}">
+
     <title>Tasks</title>
 
 </head>
@@ -20,9 +23,19 @@
         {% if task.is_completed %}
 
 
-            <p style="display: inline">{{ task.title }} - <span style = background-color:green;>Completed</span> - {{ task.created_at }}</p>        <a href="{% url 'update-task' task.id %}" style="display: inline"> Edit </a> <a href="{% url 'delete-task' task.id %}" style="display: inline"> delete </a>  <br>
+   
+            <div class="btn-holder">
+                <p class="status completed" style="display: inline">{{ task.title }} -Completed - {{ task.created_at }}</p>   
+                <a href="{% url 'update-task' task.id %}" style="display: inline "class="edit-link"> Edit </a>
+                <a href="{% url 'delete-task' task.id %}" style="display: inline" class="delete-link"> delete </a> 
+            </div>
         {% else %}
-            <p style="display: inline">{{ task.title }} - Not Completed - {{ task.created_at }}</p>        <a href="{% url 'update-task' task.id %}" style="display: inline"> Edit </a>  <a href="{% url 'delete-task' task.id %}" style="display: inline"> delete </a> <br>
+           
+            <div class="btn-holder">
+                <p class = "status not-completed" style="display: inline">{{ task.title }} - Not Completed - {{ task.created_at }}</p>
+                <a href="{% url 'update-task' task.id %}" style="display: inline " class="edit-link"> Edit </a>
+                <a href="{% url 'delete-task' task.id %}" style="display: inline" class="delete-link"> delete </a> 
+            </div>
         {% endif %}
     {% endfor %}
    <br>
