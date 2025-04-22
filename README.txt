@@ -21,5 +21,5 @@ A simple to-do list web application built with Django.
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/todo-list-django.git
-cd todo-list-django
+https://github.com/kaveh-davodabadi/django-todo-app
+cd django-todo-app
