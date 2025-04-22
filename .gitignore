@@ -1,6 +1,6 @@
-venv/ 
+
 #  virtual enviroment
-venv/
+.venv/
 
 
 #cash files
